@@ -1,0 +1,36 @@
+.button {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  background-color: #0D9488;
+
+  &:hover {
+    background-color: #14B8A6;
+  }
+
+  &.outline {
+    background-color: #fff;
+    color: #0D9488;
+    border: 1px solid #0D9488;
+    &:hover {
+      background-color: #F0FDFA;
+    }
+  }
+
+  &.headerButton {
+    font-size: 24px;
+    padding: 8px 49px;
+  }
+
+  &.disabled {
+    background-color: #E5E7EB;
+  }
+}
+
+
+
+
+
