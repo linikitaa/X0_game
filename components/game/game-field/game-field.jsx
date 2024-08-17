@@ -1,38 +1,59 @@
 import s from "./game-field.module.scss";
 import { UiButton } from "../../uikit/ui-button";
-import Image from "next/image";
-import cross from "./../game-players/icons/cross.svg";
-import circle from "./../game-players/icons/circle.svg";
-
-const cells = new Array(19 * 19).fill(null);
+import { GameSymbol } from "../game-symbol/game-symbol";
+import { UseGameState } from "../../useGameState";
 
 export function GameField() {
+  // const [cells, setCells] = useState(() => new Array(19 * 19).fill(null));
+  // const [currentMove, setCurrentMove] = useState(GAME_SYMBOLS.SQUARE);
+
+  const { onClickHandler, nextMove, currentMove, cells } = UseGameState();
+
   return (
     <div className={s.gameField}>
-      <div className={s.gameFieldHeader}>
-        <div className={s.gameFieldInfo}>
-          <p className={s.gameFieldTitle}>
-            Ход: {<Image className={s.gameFieldIcon} src={cross} alt={cross} />}
-          </p>
-          <p className={s.gameFieldSubtitle}>
-            Следующий:{" "}
-            {<Image className={s.gameFieldIcon} src={circle} alt={circle} />}
-          </p>
-        </div>
-        <div className={s.gameFieldButton}>
-          <UiButton children={"Ничья"} />
-          <UiButton children={"Сдаться"} variant={"outline"} />
-        </div>
-      </div>
+      <GameMoveInfo currentMove={currentMove} nextMove={nextMove} />
       <div className={s.field}>
-        {cells.map((_, i) => {
+        {cells.map((symbol, index) => {
           return (
-            <button key={i} className={s.fieldItem}>
-              <Image src={cross} alt={circle} />
-            </button>
+            <GameCell
+              key={index}
+              onClick={() => {
+                onClickHandler(index);
+              }}
+            >
+              {symbol && <GameSymbol symbol={symbol} />}
+            </GameCell>
           );
         })}
       </div>
     </div>
+  );
+}
+
+function GameMoveInfo({ currentMove, nextMove }) {
+  return (
+    <div className={s.gameFieldHeader}>
+      <div className={s.gameFieldInfo}>
+        <p className={s.gameFieldTitle}>
+          Ход: {<GameSymbol symbol={currentMove} className={s.gameFieldIcon} />}
+        </p>
+        <p className={s.gameFieldSubtitle}>
+          Следующий:{" "}
+          {<GameSymbol symbol={nextMove} className={s.gameFieldIcon} />}
+        </p>
+      </div>
+      <div className={s.gameFieldButton}>
+        <UiButton children={"Ничья"} />
+        <UiButton children={"Сдаться"} variant={"outline"} />
+      </div>
+    </div>
+  );
+}
+
+function GameCell({ children, onClick }) {
+  return (
+    <button onClick={onClick} className={s.fieldItem}>
+      {children}
+    </button>
   );
 }
