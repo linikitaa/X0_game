@@ -1,7 +1,6 @@
 .gamePlayers {
-
   padding: 30px;
-  box-shadow: 0 4px 10px 0 #0000001A;
+  box-shadow: 0 4px 10px 0 #0000001a;
   border-radius: 16px;
   margin: 20px 0;
   max-width: 620px;
@@ -22,7 +21,6 @@
 }
 
 .profile {
-
   position: relative;
 }
 
@@ -38,33 +36,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-
 }
 
 .time {
   font-size: 18px;
   font-weight: 600;
   line-height: 21px;
-  color: #94A3B8;
+  color: #94a3b8;
   display: flex;
   gap: 10px;
 
-
   .isDanger {
-    color: #EA580C;
+    color: #ea580c;
   }
 }
 
 .active {
-  color: #0F172A;
+  color: #0f172a;
 }
 
 .playersItem {
   display: flex;
   align-items: center;
   gap: 10px;
-
 }
 
 .playersItem .time {

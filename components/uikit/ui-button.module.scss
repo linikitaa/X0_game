@@ -5,18 +5,18 @@
   border-radius: 8px;
   border: none;
   color: #fff;
-  background-color: #0D9488;
+  background-color: #0d9488;
 
   &:hover {
-    background-color: #14B8A6;
+    background-color: #14b8a6;
   }
 
   &.outline {
     background-color: #fff;
-    color: #0D9488;
-    border: 1px solid #0D9488;
+    color: #0d9488;
+    border: 1px solid #0d9488;
     &:hover {
-      background-color: #F0FDFA;
+      background-color: #f0fdfa;
     }
   }
 
@@ -26,11 +26,6 @@
   }
 
   &.disabled {
-    background-color: #E5E7EB;
+    background-color: #e5e7eb;
   }
 }
-
-
-
-
-

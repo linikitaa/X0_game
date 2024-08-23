@@ -1,5 +1,5 @@
-import { Header } from "../components/header/index";
-import Game from "../components/game/game";
+import { Header } from '../components/header/index'
+import Game from '../components/game/game'
 
 export default function Homepage() {
   return (
@@ -7,5 +7,5 @@ export default function Homepage() {
       <Header />
       <Game />
     </div>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-import s from "./ui-button.module.scss";
-import classNames from "classnames";
+import s from './ui-button.module.scss'
+import classNames from 'classnames'
 
 /**
  *
@@ -10,12 +10,12 @@ import classNames from "classnames";
  * @constructor
  */
 
-export function UiButton({ children, variant = "button", disabled = false }) {
+export function UiButton({ children, variant = 'button', disabled = false }) {
   const buttonClass = classNames(s.button, {
-    [s.outline]: variant === "outline" && !disabled,
-    [s.headerButton]: variant === "headerButton" && !disabled,
+    [s.outline]: variant === 'outline' && !disabled,
+    [s.headerButton]: variant === 'headerButton' && !disabled,
     [s.disabled]: disabled,
-  });
+  })
 
-  return <button className={buttonClass}>{children}</button>;
+  return <button className={buttonClass}>{children}</button>
 }

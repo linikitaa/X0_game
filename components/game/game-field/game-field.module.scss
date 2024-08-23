@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  box-shadow: 0 4px 10px 0 #0000001A;
+  box-shadow: 0 4px 10px 0 #0000001a;
   border-radius: 16px;
   margin: 25px 0;
   gap: 15px;
@@ -13,7 +13,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .gameFieldInfo {
@@ -22,9 +21,8 @@
 .gameFieldTitle {
   font-size: 20px;
   font-weight: 600;
-  color: #0F172A;
+  color: #0f172a;
   line-height: 24px;
-
 }
 
 .gameFieldIcon {
@@ -34,7 +32,7 @@
 
 .gameFieldSubtitle {
   font-size: 12px;
-  color: #94A3B8;
+  color: #94a3b8;
 }
 
 .gameFieldButton {
@@ -49,8 +47,8 @@
 }
 
 .fieldItem {
-  border: 1px solid #94A3B8;
+  border: 1px solid #94a3b8;
   background-color: inherit;
-margin-left: -1px;
+  margin-left: -1px;
   margin-top: -1px;
 }
