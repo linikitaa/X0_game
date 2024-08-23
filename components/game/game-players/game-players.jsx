@@ -1,34 +1,63 @@
 import player1 from "./image/player1.jpg";
 import player2 from "./image/player2.jpg";
-import divider from "./../../header/image/divider.svg";
-import cross from "../../assets/icons/cross.svg";
-import circle from "../../assets/icons/circle.svg";
+import player3 from "./image/player3.jpg";
+import player4 from "./image/player4.jpg";
 
 import s from "./gamePlayers.module.scss";
-import Image from "next/image";
-import { Profile } from "../../profile";
+import { PlayerItem } from "./player-item";
+import { GAME_SYMBOLS } from "../../constants";
 
-export function GamePlayers() {
+const players = [
+  {
+    id: "1",
+    name: "Evgeny",
+    avatar: player1,
+    symbol: GAME_SYMBOLS.CROSS,
+    rate: "1230",
+  },
+  {
+    id: "2",
+    name: "VeraVeraVeraVera",
+    avatar: player2,
+    symbol: GAME_SYMBOLS.ZERO,
+    rate: "850",
+  },
+  {
+    id: "3",
+    name: "Lara",
+    avatar: player3,
+    symbol: GAME_SYMBOLS.TRIANGLE,
+    rate: "930",
+  },
+  {
+    id: "4",
+    name: "Tom",
+    avatar: player4,
+    symbol: GAME_SYMBOLS.SQUARE,
+    rate: "330",
+  },
+];
+export function GamePlayers({ playersCount, currentMove }) {
   return (
     <div className={s.gamePlayers}>
-      <div className={s.playersItem}>
-        <Profile name={"Paromovevg"} avatar={player1} rateText={"1230"} />
-        <span className={s.playersItemStatus}>
-          <Image width={"12"} height={"12"} src={cross} alt={cross} />
-        </span>
-      </div>
-      <Image src={divider} alt={divider} />
-      <div className={s.time}>
-        <span className={s.timeWait}>01:08</span>
-        <span className={s.active}>00:08</span>
-      </div>
-      <Image src={divider} alt={divider} />
-      <div className={s.playersItem}>
-        <Profile name={"VereInteding"} avatar={player2} rateText={"850"} />
-        <span className={s.playersItemStatus}>
-          <Image width={"12"} height={"12"} src={circle} alt={circle} />
-        </span>
-      </div>
+      {players.slice(0, playersCount).map((el, index) => {
+        // const isSpecial = el.id === "2" || el.id === "4";
+        const isSpecial = el.id % 2 === 0;
+        return (
+          <PlayerItem
+            key={el.id}
+            id={el.id}
+            index={index} // передаем индекс как ключ для times
+            name={el.name}
+            rate={el.rate}
+            avatar={el.avatar}
+            symbol={el.symbol}
+            isSpecial={isSpecial}
+            isTimerRunning={currentMove === el.symbol}
+            currentMove={currentMove}
+          />
+        );
+      })}
     </div>
   );
 }

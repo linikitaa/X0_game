@@ -1,11 +1,12 @@
 .playersWrap {
   display: flex;
-  justify-content: center;
   align-items: center;
+  width: 170px;
 }
 
 .header_text {
   margin: 0 10px;
+
 }
 .header_avatar {
   width: 48px;
@@ -14,6 +15,11 @@
 .header_name {
   color: #0D9488;
   font-size: 18px;
+  max-width: 120px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .header_rate {

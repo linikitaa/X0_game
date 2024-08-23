@@ -1,13 +1,10 @@
 import s from "./game-field.module.scss";
 import { UiButton } from "../../uikit/ui-button";
 import { GameSymbol } from "../game-symbol/game-symbol";
-import { UseGameState } from "../../useGameState";
 
-export function GameField() {
+export function GameField({ cells, onClickHandler, currentMove, nextMove }) {
   // const [cells, setCells] = useState(() => new Array(19 * 19).fill(null));
   // const [currentMove, setCurrentMove] = useState(GAME_SYMBOLS.SQUARE);
-
-  const { onClickHandler, nextMove, currentMove, cells } = UseGameState();
 
   return (
     <div className={s.gameField}>

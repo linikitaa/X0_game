@@ -1,46 +1,82 @@
 .gamePlayers {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
-    box-shadow: 0 4px 10px 0 #0000001A;
-    border-radius: 16px;
-    margin: 20px 0;
-    min-width: 620px;
+
+  padding: 30px;
+  box-shadow: 0 4px 10px 0 #0000001A;
+  border-radius: 16px;
+  margin: 20px 0;
+  max-width: 620px;
+
+  display: flex;
+  flex-wrap: wrap;
+  //justify-content: space-between;
+  gap: 20px;
+  //display: grid;
+  //grid-template-columns: repeat(2, 1fr); /* Две колонки одинаковой ширины */
+  //gap: 20px 45px;
 }
 
 .playersItem {
-    position: relative;
+  display: flex;
+  flex: 0 1 calc(50% - 10px);
+  //min-width: 250px;
 }
+
+.profile {
+
+  position: relative;
+}
+
 .playersItemStatus {
-    position: absolute;
-    left: -5px;
-    top: -1px;
-    width: 20px;
-    height: 20px;
-    background-color: #fff;
-    border-radius: 50%;
+  position: absolute;
+  left: -5px;
+  top: -1px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.divider {
-    width: 2px;
-    height: 33px;
-    background-color: #E2E8F0
+
 }
 
 .time {
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 21px;
-    color: #0F172A;
-    display: flex;
-    gap: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21px;
+  color: #94A3B8;
+  display: flex;
+  gap: 10px;
 
-    .active {
-        color: #EA580C;
-    }
+
+  .isDanger {
+    color: #EA580C;
+  }
+}
+
+.active {
+  color: #0F172A;
+}
+
+.playersItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.playersItem .time {
+  order: 0; /* По умолчанию время идет после других элементов */
+}
+
+.playersItem.profileFirst .time {
+  order: -1; /* Время будет слева от остальных элементов */
+  flex-direction: row-reverse;
+}
+
+.gameSymbol {
+  width: 12px;
+  height: 12px;
 }

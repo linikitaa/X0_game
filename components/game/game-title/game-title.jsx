@@ -6,7 +6,7 @@ import time from "./icons/time.svg";
 import Image from "next/image";
 import Link from "next/link";
 
-export function GameTitle() {
+export function GameTitle({ playersCount }) {
   return (
     <div className={s.title}>
       <div className={s.link}>
@@ -17,7 +17,8 @@ export function GameTitle() {
       <div className={s.subtitle}>
         <Image src={rate} alt={rate} />
         <span>
-          <Image src={user} alt={user} />2
+          <Image src={user} alt={user} />
+          {playersCount}
         </span>
         <span>
           <Image src={time} alt={time} />1 мин на ход
