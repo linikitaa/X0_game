@@ -1,8 +1,8 @@
-import { GAME_SYMBOLS } from '../../constants'
-import { Circle } from '../../assets/icons/circle'
-import { Cross } from '../../assets/icons/cross'
-import { Triangle } from '../../assets/icons/triangle'
-import { Square } from '../../assets/icons/square'
+import { GAME_SYMBOLS } from '@/constants/*'
+import { Circle } from '@/assets/icons/circle'
+import { Cross } from '@/assets/icons/cross'
+import { Triangle } from '@/assets/icons/triangle'
+import { Square } from '@/assets/icons/square'
 
 export function GameSymbol({ symbol, className }) {
   const Icon =

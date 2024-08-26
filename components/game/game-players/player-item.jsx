@@ -1,10 +1,12 @@
+import divider from '@/header/image/divider.svg'
 import s from './gamePlayers.module.scss'
+
 import { Profile } from '../../profile'
-import Image from 'next/image'
-import divider from '../../header/image/divider.svg'
-import { useEffect, useState } from 'react'
-import { GameSymbol } from '../game-symbol/game-symbol'
+import { GameSymbol } from '@/components/game'
+
 import classNames from 'classnames'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 export function PlayerItem({
   name,

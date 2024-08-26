@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/assets/*": ["components/assets/*"],
+      "@/game/*": ["components/game/*"],
+      "@/constants/*": ["components/constants"],
+      "@/uikit/*": ["components/uikit/*"],
+      "@/header/*": ["components/header/*"],
+      "@/profile/*": ["components/profile/*"]
+    }
+  }
+}

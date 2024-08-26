@@ -1,9 +1,7 @@
 import s from './game.module.scss'
-import { GamePlayers } from './game-players'
-import { GameTitle } from './game-title'
-import { GameField } from './game-field'
 import { useState } from 'react'
 import { UseGameState } from '../useGameState'
+import { GameField, GamePlayers, GameTitle } from '@/game/index'
 
 export default function Game() {
   const [playersCount] = useState(4)

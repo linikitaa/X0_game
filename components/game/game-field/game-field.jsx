@@ -1,6 +1,6 @@
 import s from './game-field.module.scss'
-import { UiButton } from '../../uikit/ui-button'
-import { GameSymbol } from '../game-symbol/game-symbol'
+import { UiButton } from '@/uikit/ui-button'
+import { GameSymbol } from '@/components/game'
 
 export function GameField({ cells, onClickHandler, currentMove, nextMove }) {
   // const [cells, setCells] = useState(() => new Array(19 * 19).fill(null));

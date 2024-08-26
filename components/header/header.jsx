@@ -5,7 +5,7 @@ import divider from './image/divider.svg'
 import s from './header.module.scss'
 import arrow from './image/arrow.svg'
 import { Profile } from '../profile'
-import { UiButton } from '../uikit/ui-button'
+import { UiButton } from '@/uikit/ui-button'
 
 export function Header() {
   return (
