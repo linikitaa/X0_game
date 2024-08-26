@@ -28,6 +28,7 @@
 .gameFieldIcon {
   width: 20px;
   height: 20px;
+
 }
 
 .gameFieldSubtitle {
@@ -38,6 +39,7 @@
 .gameFieldButton {
   display: flex;
   gap: 10px;
+
 }
 
 .field {
@@ -51,4 +53,9 @@
   background-color: inherit;
   margin-left: -1px;
   margin-top: -1px;
+
+}
+
+.winner {
+  background-color: #fccbcb;
 }

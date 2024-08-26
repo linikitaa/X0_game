@@ -5,7 +5,7 @@ import player4 from './image/player4.jpg'
 
 import s from './gamePlayers.module.scss'
 import { PlayerItem } from './player-item'
-import { GAME_SYMBOLS } from '../../constants'
+import { GAME_SYMBOLS } from '@/constants/*'
 
 const players = [
   {

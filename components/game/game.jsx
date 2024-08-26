@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { UseGameState } from '../useGameState'
 import { GameField, GamePlayers, GameTitle } from '@/game/index'
 
-export default function Game() {
-  const [playersCount] = useState(4)
+export function Game() {
+  const [playersCount] = useState(2)
 
-  const { onClickHandler, nextMove, currentMove, cells } =
+  const { onClickHandler, nextMove, currentMove, cells, winnerSequence } =
     UseGameState(playersCount)
   return (
     <div className={s.app}>
@@ -22,6 +22,7 @@ export default function Game() {
         currentMove={currentMove}
         onClickHandler={onClickHandler}
         nextMove={nextMove}
+        winnerSequence={winnerSequence}
       />
     </div>
   )

@@ -16,7 +16,6 @@ export function PlayerItem({
   isSpecial,
   isTimerRunning,
 }) {
-  console.log(isTimerRunning)
   const timeClass = classNames(s.time, isTimerRunning && s.active)
   const [seconds, setSeconds] = useState(60)
 

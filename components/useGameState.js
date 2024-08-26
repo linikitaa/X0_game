@@ -1,12 +1,6 @@
-import { GAME_SYMBOLS, MOVE_ORDER } from './constants'
+import { GAME_SYMBOLS } from './constants'
 import { useState } from 'react'
-
-function getNextMove(currentMove, playersCount) {
-  const slicedMoveOrder = MOVE_ORDER.slice(0, playersCount)
-
-  const nextMoveIndex = slicedMoveOrder.indexOf(currentMove) + 1
-  return slicedMoveOrder[nextMoveIndex] ?? slicedMoveOrder[0]
-}
+import { computeWinner, getNextMove } from '@/components/model'
 
 export function UseGameState(playersCount) {
   const [{ cells, currentMove }, setGameState] = useState(() => ({
@@ -14,7 +8,9 @@ export function UseGameState(playersCount) {
     currentMove: GAME_SYMBOLS.CROSS,
   }))
 
-  let nextMove = getNextMove(currentMove, playersCount)
+  const winnerSequence = computeWinner(cells)
+
+  const nextMove = getNextMove(currentMove, playersCount)
   const onClickHandler = (index) => {
     setGameState((lastGameState) => {
       if (lastGameState.cells[index]) {
@@ -31,5 +27,5 @@ export function UseGameState(playersCount) {
     })
   }
 
-  return { cells, currentMove, nextMove, onClickHandler }
+  return { cells, currentMove, nextMove, onClickHandler, winnerSequence }
 }

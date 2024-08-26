@@ -2,7 +2,13 @@ import s from './game-field.module.scss'
 import { UiButton } from '@/uikit/ui-button'
 import { GameSymbol } from '@/components/game'
 
-export function GameField({ cells, onClickHandler, currentMove, nextMove }) {
+export function GameField({
+  cells,
+  onClickHandler,
+  currentMove,
+  nextMove,
+  winnerSequence,
+}) {
   // const [cells, setCells] = useState(() => new Array(19 * 19).fill(null));
   // const [currentMove, setCurrentMove] = useState(GAME_SYMBOLS.SQUARE);
 
@@ -20,6 +26,7 @@ export function GameField({ cells, onClickHandler, currentMove, nextMove }) {
               onClick={() => {
                 onClickHandler(index)
               }}
+              isWinner={winnerSequence?.includes(index)}
             >
               {symbol && <GameSymbol symbol={symbol} />}
             </GameCell>
@@ -64,11 +71,11 @@ function GameMoveInfo({ currentMove, nextMove }) {
   )
 }
 
-function GameCell({ children, onClick }) {
+function GameCell({ children, onClick, isWinner }) {
   return (
     <button
       onClick={onClick}
-      className={s.fieldItem}
+      className={`${s.fieldItem} ${isWinner ? s.winner : ''}`}
     >
       {children}
     </button>
