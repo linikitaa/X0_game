@@ -15,9 +15,10 @@ export function PlayerItem({
   symbol,
   isSpecial,
   isTimerRunning,
+  onTimeOver,
 }) {
   const timeClass = classNames(s.time, isTimerRunning && s.active)
-  const [seconds, setSeconds] = useState(60)
+  const [seconds, setSeconds] = useState(6)
 
   const minutesString = String(Math.floor(seconds / 60)).padStart(2, '0')
   const remainingSeconds = String(seconds % 60).padStart(2, '0') // Определение оставшихся секунд
@@ -32,10 +33,16 @@ export function PlayerItem({
 
       return () => {
         clearInterval(interval)
-        setSeconds(60)
+        setSeconds(6)
       }
     }
   }, [isTimerRunning])
+
+  useEffect(() => {
+    if (seconds === 0) {
+      onTimeOver()
+    }
+  }, [seconds])
   return (
     <div className={`${s.playersItem} ${isSpecial ? s.profileFirst : ''} `}>
       <div className={s.profile}>

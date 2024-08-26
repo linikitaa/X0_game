@@ -37,7 +37,12 @@ const players = [
     rate: '330',
   },
 ]
-export function GamePlayers({ playersCount, currentMove }) {
+export function GamePlayers({
+  playersCount,
+  currentMove,
+  isWinner,
+  onPlayerTimeOver,
+}) {
   return (
     <div className={s.gamePlayers}>
       {players.slice(0, playersCount).map((el, index) => {
@@ -53,8 +58,9 @@ export function GamePlayers({ playersCount, currentMove }) {
             avatar={el.avatar}
             symbol={el.symbol}
             isSpecial={isSpecial}
-            isTimerRunning={currentMove === el.symbol}
+            isTimerRunning={currentMove === el.symbol && !isWinner}
             currentMove={currentMove}
+            onTimeOver={() => onPlayerTimeOver(el.symbol)}
           />
         )
       })}

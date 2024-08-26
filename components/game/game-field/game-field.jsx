@@ -8,6 +8,7 @@ export function GameField({
   currentMove,
   nextMove,
   winnerSequence,
+  winnerSymbol,
 }) {
   // const [cells, setCells] = useState(() => new Array(19 * 19).fill(null));
   // const [currentMove, setCurrentMove] = useState(GAME_SYMBOLS.SQUARE);
@@ -27,6 +28,7 @@ export function GameField({
                 onClickHandler(index)
               }}
               isWinner={winnerSequence?.includes(index)}
+              disabled={!!winnerSymbol}
             >
               {symbol && <GameSymbol symbol={symbol} />}
             </GameCell>
@@ -71,9 +73,10 @@ function GameMoveInfo({ currentMove, nextMove }) {
   )
 }
 
-function GameCell({ children, onClick, isWinner }) {
+function GameCell({ children, onClick, isWinner, disabled }) {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={`${s.fieldItem} ${isWinner ? s.winner : ''}`}
     >
