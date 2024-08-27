@@ -1,0 +1,115 @@
+//.modalWrap {
+//    position: fixed; /* Блок располагается относительно окна браузера */
+//    top: 0;
+//    left: 0;
+//    width: 100%;
+//    height: 100%;
+//    z-index: 9999; /* Высокий z-index, чтобы блок находился поверх других элементов */
+//    background-color: rgba(15, 23, 42, 0.55);
+//
+//    display: flex;
+//    justify-content: center; /* Центрирование по горизонтали */
+//    align-items: center; /* Центрирование по вертикали */
+//}
+//.modalContent {
+//    background-color: #fff;
+//    min-width: 640px;
+//    border-radius: 8px;
+//    padding: 25px;
+//    margin-top: -150px;
+//
+//    position: relative;
+//}
+//
+//.modalWin {
+//    color: #0D9488;
+//}
+//.modalTitle {
+//    font-size: 24px;
+//    line-height: 29px;
+//    margin-bottom: 16px;
+//}
+//
+//.modalBottom {
+//    display: flex;
+//    justify-content: end;
+//    gap: 20px;
+//}
+//.modalButtonWrap {
+//    position: absolute;
+//    top: 0;
+//    right: -40px;
+//
+//    width: 32px;
+//    height: 32px;
+//    border: none;
+//    border-radius: 4px;
+//    background-color: rgba(255, 255, 255, 0.2);
+//
+//    &:hover {
+//        background-color: rgba(255, 255, 255, 0.5);
+//    }
+//}
+//.crossModalButton {
+//
+//}
+
+
+// ui-modal.module.scss
+
+.modalWrap {
+    position: fixed; /* Блок располагается относительно окна браузера */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Высокий z-index, чтобы блок находился поверх других элементов */
+    background-color: rgba(15, 23, 42, 0.55); /* Затенение фона */
+
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+}
+
+.modalContent {
+    background-color: #fff;
+    min-width: 640px;
+    border-radius: 8px;
+    padding: 25px;
+    position: relative;
+}
+
+.modalTitle {
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 16px;
+}
+
+.modalBody {
+    /* Добавьте стили для тела модального окна, если необходимо */
+}
+
+.modalBottom {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+.modalButtonWrap {
+    position: absolute;
+    top: 0;
+    right: -40px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.crossModalButton {
+    /* Добавьте стили для кнопки закрытия, если необходимо */
+}
