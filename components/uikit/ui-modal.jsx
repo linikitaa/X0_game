@@ -1,6 +1,4 @@
-import { GamePlayers } from '@/components/game'
 import s from './ui-modal.module.scss'
-import { UiButton } from '@/uikit/ui-button'
 
 // export function UiModal({ children }) {
 //   return (

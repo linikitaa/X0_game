@@ -1,0 +1,14 @@
+.gamePlayers {
+  padding: 30px;
+  box-shadow: 0 4px 10px 0 #0000001a;
+  border-radius: 16px;
+  margin: 20px 0;
+  min-width: 620px;
+
+  //display: flex;
+  //flex-wrap: wrap;
+  //justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Две колонки одинаковой ширины */
+  gap: 20px 45px;
+}
