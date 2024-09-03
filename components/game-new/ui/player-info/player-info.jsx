@@ -3,8 +3,10 @@ import playerInfo from './player-info.module.scss'
 import { GameSymbol } from '@/game/index'
 
 import classNames from 'classnames'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { Farsan } from 'next/dist/compiled/@next/font/dist/google'
+import { UseNow } from '@/components/lib/timers'
 export function PlayerInfo({
   isRight,
   name,
@@ -19,27 +21,26 @@ export function PlayerInfo({
     timerStartAt && playerInfo.active
   )
 
-  // const now = useNow(1000, timerStartAt)
-  // const mils = Math.max(now ? timer - (now - timerStartAt) : timer, 0)
-  // const seconds = Math.ceil(mils / 1000)
-  const seconds = Math.ceil(timer / 1000)
+  const now = UseNow(1000, timerStartAt)
+  const mils = Math.max(now ? timer - (now - timerStartAt) : timer, 0)
+  const seconds = Math.ceil(mils / 1000)
   const minutesString = String(Math.floor(seconds / 60)).padStart(2, '0')
   const secondsString = String(seconds % 60).padStart(2, '0')
 
   const isDanger = seconds < 10
 
-  const getTimerColor = () => {
-    if (timerStartAt) {
-      return isDanger ? 'text-orange-600' : 'text-slate-900'
-    }
-    return 'text-slate-200'
-  }
-
-  useEffect(() => {
-    if (seconds === 0) {
-      getTimerColor()
-    }
-  }, [seconds])
+  // const getTimerColor = () => {
+  //   // if (timerStartAt) {
+  //   //   return isDanger ? 'text-orange-600' : 'text-slate-900'
+  //   // }
+  //   // return 'text-slate-200'
+  // }
+  //
+  // useEffect(() => {
+  //   if (seconds === 0) {
+  //     getTimerColor()
+  //   }
+  // }, [seconds])
   return (
     <div
       className={`${playerInfo.playersItem} ${isRight ? playerInfo.profileFirst : ''} `}
