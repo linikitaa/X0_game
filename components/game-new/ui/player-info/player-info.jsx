@@ -12,7 +12,7 @@ export function PlayerInfo({
   avatar,
   symbol,
   timerStartAt,
-  seconds,
+  timer,
 }) {
   const timeClass = classNames(
     playerInfo.time,
@@ -22,6 +22,7 @@ export function PlayerInfo({
   // const now = useNow(1000, timerStartAt)
   // const mils = Math.max(now ? timer - (now - timerStartAt) : timer, 0)
   // const seconds = Math.ceil(mils / 1000)
+  const seconds = Math.ceil(timer / 1000)
   const minutesString = String(Math.floor(seconds / 60)).padStart(2, '0')
   const secondsString = String(seconds % 60).padStart(2, '0')
 

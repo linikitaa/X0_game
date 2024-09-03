@@ -23,7 +23,7 @@ const PLAYERS_COUNT = 2
 export function Game() {
   const [gameState, dispatch] = useReducer(
     gameStateReducer,
-    { playersCount: PLAYERS_COUNT },
+    { playersCount: PLAYERS_COUNT, defaultTimer: 60000 },
     initGameState
   )
 
@@ -58,7 +58,7 @@ export function Game() {
               name={el.name}
               rating={el.rate}
               avatar={el.avatar}
-              seconds={60}
+              timer={gameState.timers[el.symbol]}
               isRight={index % 2 === 1}
             />
           )
@@ -97,6 +97,7 @@ export function Game() {
             rating={player.rating}
             symbol={player.symbol}
             isRight={index % 2 === 1}
+            timer={gameState.timers[player.symbol]}
           />
         ))}
       />
