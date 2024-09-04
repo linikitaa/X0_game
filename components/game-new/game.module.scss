@@ -1,0 +1,45 @@
+.app {
+  max-width: max-content;
+  margin: 0 auto;
+  padding: 25px;
+  display: flex;
+  gap: 30px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  h1 {
+    font-size: 36px;
+    line-height: 43px;
+  }
+}
+
+
+
+
+.link {
+  a {
+    color: #0d9488;
+    font-size: 12px;
+    margin-left: 10px;
+    text-decoration: none;
+
+    &:hover {
+      color: #14b8a6;
+    }
+  }
+}
+
+.subtitle {
+  display: flex;
+  gap: 10px;
+  span {
+    color: #94a3b8;
+    font-size: 14px;
+    line-height: 14px;
+    display: flex;
+    gap: 3px;
+  }
+}

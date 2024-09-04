@@ -1,6 +1,6 @@
-import s from '@/game/game-field/game-field.module.scss'
-import { GameSymbol } from '@/components/game'
+import s from './moveInfo.module.scss'
 import { UiButton } from '@/uikit/ui-button'
+import { GameSymbol } from '@/components/game-new/ui/game-symbol'
 
 export function GameMoveInfo({ currentMove, nextMove }) {
   return (

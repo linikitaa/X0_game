@@ -2,13 +2,13 @@ import { GameLayout } from '@/components/game-new/ui/game-layout/game-layout'
 import { BackLink } from '@/components/game-new/ui/back-link'
 import { GameTitle } from '@/components/game-new/ui/game-title'
 import { GameInfo } from '@/components/game-new/ui/game-info'
-import { PLAYERS } from '@/constants/*'
 import { PlayerInfo } from '@/components/game-new/ui/player-info/player-info'
 import { GameMoveInfo } from '@/components/game-new/ui/game-move-info/game-move-info'
+import { GameOverModal } from '@/components/game-new/ui/game-over-modal/game-over-modal'
 import { GameCell } from '@/components/game-new/ui/game-cell/game-cell'
 
-import { GameOverModal } from '@/components/game-new/ui/game-over-modal/game-over-modal'
-import { useReducer } from 'react'
+import { PLAYERS } from '@/constants/*'
+import { useCallback, useMemo, useReducer } from 'react'
 import {
   GAME_STATE_ACTIONS,
   gameStateReducer,
@@ -20,6 +20,8 @@ import { ComputeWinnerSymbol } from '@/components/game-new/model/compute-winner-
 import { ComputePlayerTimer } from '@/components/game-new/model/compute-player-timer'
 import { useInterval } from '@/components/lib/timers'
 
+import s from './game.module.scss'
+
 const PLAYERS_COUNT = 2
 
 export function Game() {
@@ -27,18 +29,23 @@ export function Game() {
     gameStateReducer,
     {
       playersCount: PLAYERS_COUNT,
-      defaultTimer: 10000,
+      defaultTimer: 60000,
       currentMoveStart: Date.now(),
     },
     initGameState
   )
-  useInterval(1000, !!gameState.currentMoveStart, () => {
-    dispatch({
-      type: GAME_STATE_ACTIONS.TICK,
-      now: Date.now(),
-    })
-  })
-  const winnerSequence = computeWinner(gameState.cells)
+
+  useInterval(
+    1000,
+    !!gameState.currentMoveStart,
+    useCallback(() => {
+      dispatch({
+        type: GAME_STATE_ACTIONS.TICK,
+        now: Date.now(),
+      })
+    }, [])
+  )
+  const winnerSequence = useMemo(() => computeWinner(gameState), [gameState])
   const nextMove = getNextMove(gameState)
   const winnerSymbol = ComputeWinnerSymbol(gameState, {
     nextMove,
@@ -48,8 +55,16 @@ export function Game() {
 
   const { cells, currentMove } = gameState
 
+  const handleCellClick = useCallback((index) => {
+    dispatch({
+      type: GAME_STATE_ACTIONS.CELL_CLICK,
+      index,
+      now: Date.now(),
+    })
+  }, [])
+
   return (
-    <>
+    <div className={s.app}>
       <GameLayout
         backLink={<BackLink />}
         title={<GameTitle />}
@@ -85,13 +100,8 @@ export function Game() {
           return (
             <GameCell
               key={index}
-              onClick={() => {
-                dispatch({
-                  type: GAME_STATE_ACTIONS.CELL_CLICK,
-                  index,
-                  now: Date.now(),
-                })
-              }}
+              index={index}
+              onClick={handleCellClick}
               isWinner={winnerSequence?.includes(index)}
               disabled={!!winnerSymbol}
               symbol={el}
@@ -114,6 +124,6 @@ export function Game() {
           />
         ))}
       />
-    </>
+    </div>
   )
 }

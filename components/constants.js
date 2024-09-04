@@ -1,7 +1,7 @@
-import player1 from '@/game/game-players/image/player1.jpg'
-import player2 from '@/game/game-players/image/player2.jpg'
-import player3 from '@/game/game-players/image/player3.jpg'
-import player4 from '@/game/game-players/image/player4.jpg'
+import player1 from '@/components/game-new/ui/image/player1.jpg'
+import player2 from '@/components/game-new/ui/image/player2.jpg'
+import player3 from '@/components/game-new/ui/image/player3.jpg'
+import player4 from '@/components/game-new/ui/image/player4.jpg'
 
 export const GAME_SYMBOLS = {
   ZERO: 'zero',

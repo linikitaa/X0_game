@@ -1,12 +1,10 @@
 import divider from '@/header/image/divider.svg'
-import playerInfo from './player-info.module.scss'
-import { GameSymbol } from '@/game/index'
-
-import classNames from 'classnames'
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { Farsan } from 'next/dist/compiled/@next/font/dist/google'
+import { GameSymbol } from '@/components/game-new/ui/game-symbol'
+import playerInfo from './player-info.module.scss'
 import { UseNow } from '@/components/lib/timers'
+import classNames from 'classnames'
+
 export function PlayerInfo({
   isRight,
   name,
@@ -29,18 +27,6 @@ export function PlayerInfo({
 
   const isDanger = seconds < 10
 
-  // const getTimerColor = () => {
-  //   // if (timerStartAt) {
-  //   //   return isDanger ? 'text-orange-600' : 'text-slate-900'
-  //   // }
-  //   // return 'text-slate-200'
-  // }
-  //
-  // useEffect(() => {
-  //   if (seconds === 0) {
-  //     getTimerColor()
-  //   }
-  // }, [seconds])
   return (
     <div
       className={`${playerInfo.playersItem} ${isRight ? playerInfo.profileFirst : ''} `}

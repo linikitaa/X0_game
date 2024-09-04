@@ -1,4 +1,4 @@
-import s from '@/game/game-title/game-title.module.scss'
+import s from '../game.module.scss'
 import Image from 'next/image'
 import arrow from '@/components/game-new/ui/icons/left-arrow.svg'
 import Link from 'next/link'

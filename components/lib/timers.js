@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export function useNow(interval, enabled) {
+export function UseNow(interval, enabled) {
   const [now, setNow] = useState()
 
   useEffect(() => {
@@ -28,7 +28,6 @@ export function useInterval(interval, enabled, cb) {
     }
 
     const int = setInterval(() => {
-      console.log('interval')
       cb(Date.now())
     }, interval)
 

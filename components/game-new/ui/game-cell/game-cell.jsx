@@ -1,14 +1,22 @@
-import s from '@/game/game-field/game-field.module.scss'
-import { GameSymbol } from '@/components/game'
+import s from './game-cell.module.scss'
+import { GameSymbol } from '@/components/game-new/ui/game-symbol'
+import { memo } from 'react'
 
-export function GameCell({ onClick, disabled, symbol, isWinner }) {
+export const GameCell = memo(function GameCell({
+  onClick,
+  disabled,
+  symbol,
+  isWinner,
+  index,
+}) {
+  console.log('cell')
   return (
     <button
       disabled={disabled}
-      onClick={onClick}
+      onClick={() => onClick(index)}
       className={`${s.fieldItem} ${isWinner ? s.winner : ''}`}
     >
       {symbol && <GameSymbol symbol={symbol} />}
     </button>
   )
-}
+})
